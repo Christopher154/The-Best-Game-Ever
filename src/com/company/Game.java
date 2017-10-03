@@ -18,17 +18,18 @@ public class Game {
                     "\n2. Paper" +
                     "\n3. Scissors");
             playerChoice[i] = gameScanner.nextInt();
+            playerChoice[i] = choiceValidation(playerChoice[i]);
             if(playerChoice[i] == 0){
                 System.out.println("Please enter a valid choice");
                 i--;
-            } else {
+            } else if ( playerChoice[1] != 0) {
                 playGame(playerChoice[0], playerChoice[1]);
             }
         }
     }
 
     private static int choiceValidation(int choice){
-        if (choice > 1 || choice < 4) {
+        if (choice > 1 && choice < 4) {
             return choice;
         } else {
             return 0;
