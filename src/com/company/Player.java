@@ -36,11 +36,10 @@ public class Player {
     }
 
     public void recordResult(boolean win){
-        if(win = true){
+        if(win == true){
             this.currentWins++;
         } else {
             this.currentLosses++;
         }
-
     }
 }
