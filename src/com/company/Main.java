@@ -10,6 +10,7 @@ public class Main {
     }
 
     public static void MainMenu(){
+        System.out.flush();
         Scanner choiceScanner = new Scanner(System.in);
         System.out.println("Welcome to the best game ever" +
                 "\n=============================\n");
@@ -89,7 +90,11 @@ public class Main {
     }
 
     private static void PlayerStats(){
-
+        for(int i = 0;i< storedUsers.size(); i++){
+            System.out.println("User:" + storedUsers.get(i).getUserName() + ", Wins:"
+            + storedUsers.get(i).getCurrentWins() + ", Losses:" + storedUsers.get(i).getCurrentLosses());
+        }
+        MainMenu();
     }
 
     private static void userCreation(String userName) {
@@ -107,5 +112,6 @@ public class Main {
                 storedUsers.get(l).recordResult(false);
             }
         }
+        MainMenu();
     }
 }

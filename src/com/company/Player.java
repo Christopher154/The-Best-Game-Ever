@@ -19,7 +19,7 @@ public class Player {
         return currentWins;
     }
 
-    public int getGetCurrentLosses() {
+    public int getCurrentLosses() {
         return currentLosses;
     }
 
@@ -31,16 +31,15 @@ public class Player {
         this.currentWins = currentWins;
     }
 
-    public void setGetCurrentLosses(int getCurrentLosses) {
+    public void setCurrentLosses(int getCurrentLosses) {
         this.currentLosses = getCurrentLosses;
     }
 
     public void recordResult(boolean win){
         if(win = true){
-            currentWins++;
-        }
-        else {
-            currentLosses++;
+            this.currentWins++;
+        } else {
+            this.currentLosses++;
         }
 
     }
