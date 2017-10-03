@@ -3,12 +3,12 @@ package com.company;
 public class Player {
     private String userName;
     private int currentWins;
-    private  int getCurrentLosses;
+    private int currentLosses;
 
     public Player(String userName) {
         this.userName = userName;
         this.currentWins = 0;
-        this.getCurrentLosses = 0;
+        this.currentLosses = 0;
     }
 
     public String getUserName() {
@@ -20,7 +20,7 @@ public class Player {
     }
 
     public int getGetCurrentLosses() {
-        return getCurrentLosses;
+        return currentLosses;
     }
 
     public void setUserName(String userName) {
@@ -32,7 +32,7 @@ public class Player {
     }
 
     public void setGetCurrentLosses(int getCurrentLosses) {
-        this.getCurrentLosses = getCurrentLosses;
+        this.currentLosses = getCurrentLosses;
     }
 
     public void recordResult(boolean win){
@@ -40,7 +40,8 @@ public class Player {
             currentWins++;
         }
         else {
-            getCurrentLosses++;
+            currentLosses++;
         }
+
     }
 }
