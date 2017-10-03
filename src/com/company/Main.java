@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static ArrayList<Player> storedUsers = new ArrayList<Player>();
+    public static String playerOne;
     public static void main(String[] args) {
 
 	    MainMenu();
@@ -22,7 +23,7 @@ public class Main {
         System.out.println();
         switch(playerChoice){
             case 1:
-                PlayGame();
+                PlayerOneGameSetup();
                 break;
             case 2:
                 CreateAccount();
@@ -36,34 +37,37 @@ public class Main {
         }
     }
 
-    private static void PlayGame() {
-        boolean playerExists;
-        Scanner playerScanner = new Scanner(System.in);
+    public static void PlayerOneGameSetup() {
+        Scanner playerOneScanner = new Scanner(System.in);
         System.out.println("Enter the name of player one");
-        String playerOne = playerScanner.nextLine();
-        for (int i = 0; i < storedUsers.size(); i++) {
-            if (storedUsers.get(i).getUserName() == playerOne) {
-                System.out.println("Username doesn't exist, please try again");
-                playerOne = playerScanner.nextLine();
-            } else {
-                System.out.println("Player One is " + playerOne);
+        playerOne = playerOneScanner.nextLine();
+        if (storedUsers.size() > 0)
+            for (int i = 0; i < storedUsers.size(); i++) {
+                if (storedUsers.get(i).getUserName().equals(playerOne)) {
+                    System.out.println("Player One is " + playerOne);
+                    break;
+                }
             }
-        }
+        PlayerTwoGameSetup();
+    }
+
+    public  static  void  PlayerTwoGameSetup(){
+        Scanner playerTwoScanner = new Scanner(System.in);
         System.out.println("Enter the name of player two");
-        String playerTwo = playerScanner.nextLine();
-        for (int i = 0; i < storedUsers.size(); i++) {
-            if (playerOne == playerTwo) {
-                System.out.println("You have entered the same Username twice");
-                playerTwo = playerScanner.nextLine();
+        String playerTwo = playerTwoScanner.nextLine();
+        if (storedUsers.size() > 0)
+            for (int i = 0; i < storedUsers.size(); i++) {
+                if (playerOne.equals(playerTwo)) {
+                    System.out.println("You have entered the same Username twice");
+                    PlayerTwoGameSetup();
+                } else if (storedUsers.get(i).getUserName().equals(playerTwo)) {
+                    System.out.println("Player Two is " + playerTwo);
+                    Game.PlayerAssignParameters(playerOne, playerTwo);
+                    break;
+                }
             }
-            else if (storedUsers.get(i).getUserName() == playerTwo) {
-                System.out.println("Username doesn't exist, please try again");
-                playerTwo = playerScanner.nextLine();
-            } else{
-                System.out.println("Player Two is " + playerTwo);
-                Game.PlayerAssignParameters(playerOne, playerTwo);
-            }
-        }
+        System.out.println("Username doesn't exist, please try again");
+        PlayerTwoGameSetup();
     }
 
     private static void CreateAccount(){
