@@ -9,7 +9,7 @@ public class Main {
 	    MainMenu();
     }
 
-    private static void MainMenu(){
+    public static void MainMenu(){
         Scanner choiceScanner = new Scanner(System.in);
         System.out.println("Welcome to the best game ever" +
                 "\n=============================\n");
@@ -94,5 +94,18 @@ public class Main {
 
     private static void userCreation(String userName) {
         storedUsers.add(new Player(userName));
+    }
+
+    public static void scoreSetting (String winner, String loser) {
+        for (int w = 0; w < storedUsers.size(); w++){
+            if (storedUsers.get(w).getUserName().equals(winner)) {
+                storedUsers.get(w).recordResult(true);
+            }
+        }
+        for (int l = 0; l < storedUsers.size(); l++){
+            if (storedUsers.get(l).getUserName().equals(loser)) {
+                storedUsers.get(l).recordResult(false);
+            }
+        }
     }
 }
