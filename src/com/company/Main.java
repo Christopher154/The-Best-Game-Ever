@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-    public static ArrayList storedUsers = new ArrayList();
+    public static ArrayList<Player> storedUsers = new ArrayList<Player>();
     public static void main(String[] args) {
 
 	    MainMenu();
@@ -59,5 +59,18 @@ public class Main {
 
     private static Player userCreation(String userName) {
         return new Player(userName);
+    }
+
+    public static void scoreSetting (String winner, String loser) {
+        for (int w = 0; w < storedUsers.size(); w++){
+            if (storedUsers.get(w).getUserName().equals(winner)) {
+                storedUsers.get(w).recordResult(true);
+            }
+        }
+        for (int l = 0; l < storedUsers.size(); l++){
+            if (storedUsers.get(l).getUserName().equals(loser)) {
+                storedUsers.get(l).recordResult(false);
+            }
+        }
     }
 }

@@ -2,22 +2,23 @@ package com.company;
 
 import java.util.Scanner;
 public class Game {
-    public static String[] gamePlayer = new String[1];
+    public static String[] gamePlayer = new String[2];
 
     public static void PlayerAssignParameters(String playerOne, String playerTwo){
         gamePlayer[0] = playerOne;
         gamePlayer[1] = playerTwo;
-
+        getPlayerMove();
     }
     private static void getPlayerMove() {
-        int[] playerChoice = new int[1];
+        int[] playerChoice = new int[2];
         Scanner gameScanner = new Scanner(System.in);
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             System.out.println(gamePlayer[i] + " Would you like to pick" +
                     "\n1. Rock" +
                     "\n2. Paper" +
                     "\n3. Scissors");
             playerChoice[i] = gameScanner.nextInt();
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
             if(playerChoice[i] == 0){
                 System.out.println("Please enter a valid choice");
                 i--;
@@ -81,4 +82,6 @@ public class Game {
                 Main.MainMenu();
         }
     }
+
+
 }
