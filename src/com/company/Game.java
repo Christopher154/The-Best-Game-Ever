@@ -21,7 +21,7 @@ public class Game {
             if(playerChoice[i] == 0){
                 System.out.println("Please enter a valid choice");
                 i--;
-            } else if ( playerChoice[1] != 0) {
+            } else {
                 playGame(playerChoice[0], playerChoice[1]);
             }
         }
