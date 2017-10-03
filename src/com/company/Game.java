@@ -18,11 +18,10 @@ public class Game {
                     "\n2. Paper" +
                     "\n3. Scissors");
             playerChoice[i] = gameScanner.nextInt();
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
             if(playerChoice[i] == 0){
                 System.out.println("Please enter a valid choice");
                 i--;
-            } else {
+            } else if ( playerChoice[1] != 0) {
                 playGame(playerChoice[0], playerChoice[1]);
             }
         }
@@ -43,29 +42,36 @@ public class Game {
                     rematch();
                 } else if (choiceTwo == 2) {
                     System.out.println(gamePlayer[1] + " wins");
+                    Main.scoreSetting(gamePlayer[1], gamePlayer[0]);
                 } else if(choiceTwo == 3) {
                     System.out.println(gamePlayer[0] + " wins");
+                    Main.scoreSetting(gamePlayer[0], gamePlayer[1]);
                 }
                 break;
             case 2:
                 if (choiceTwo == 1 ){
                     System.out.println(gamePlayer[0] + " wins");
+                    Main.scoreSetting(gamePlayer[0], gamePlayer[1]);
                 } else if (choiceTwo == 2) {
                     rematch();
                 } else if(choiceTwo == 3) {
                     System.out.println(gamePlayer[1] + " wins");
+                    Main.scoreSetting(gamePlayer[1], gamePlayer[0]);
                 }
                 break;
             case 3:
                 if (choiceTwo == 1 ){
                     System.out.println(gamePlayer[1] + " wins");
+                    Main.scoreSetting(gamePlayer[1], gamePlayer[0]);
                 } else if (choiceTwo == 2) {
                     System.out.println(gamePlayer[0] + " wins");
+                    Main.scoreSetting(gamePlayer[0], gamePlayer[1]);
                 } else if(choiceTwo == 3) {
                     rematch();
                 }
                 break;
         }
+        Main.MainMenu();
     }
 
     private static void rematch() {
